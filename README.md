@@ -1,5 +1,5 @@
 # blog-app-nodejs-mysql
-<img src="capture/capture.png">
+<img src="capture/capture-1.png">
 
 # Blog Application
 
