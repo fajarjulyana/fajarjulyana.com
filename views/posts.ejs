@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fajarjulyana.com</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light-mode">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light-mode">
+        <a class="navbar-brand" href="/">fajarjulyana.com</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+            </ul>
+            <div class="ml-3 dark-mode-toggle" onclick="toggleDarkMode()">
+                <i class="fas fa-moon"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Bar -->
+    <div class="container mt-5">
+        <div class="search-bar">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search posts..." oninput="filterPosts()">
+            <i class="fas fa-search"></i>
+        </div>
+    </div>
+
+    <!-- Parallax Section -->
+    <div class="parallax mt-5" style="background-image: url('images/code.jpg');">
+        <div class="parallax-overlay">Welcome to My Blog</div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mt-5" id="postsContainer">
+        <h1>All Posts</h1>
+        <% posts.forEach(post => { %>
+        <div class="blog-post light-mode" data-title="<%= post.title.toLowerCase() %>" data-content="<%= post.content.toLowerCase() %>">
+            <div class="blog-post-thumbnail">
+                <img src="<%= post.thumbnail %>" alt="<%= post.title %> Thumbnail">
+            </div>
+            <div class="blog-post-content">
+                <h2 class="blog-post-title"><%= post.title %></h2>
+                <div>
+                    <%- post.content.substring(0, 100) %>...
+                </div>
+                <a href="/posts/<%= post.id %>" class="read-more">Baca Selengkapnya</a>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center light-mode mt-5">
+        <div class="container p-4">
+            <p>&copy; 2024 Fajar Julyana. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="scripts.js"></script>
+
+</body>
+</html>
