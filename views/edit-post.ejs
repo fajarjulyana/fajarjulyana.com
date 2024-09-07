@@ -138,9 +138,11 @@
 
     <div class="update-container light-mode">
         <h1>Update Post</h1>
-        <form action="/posts/edit/<%= post.id %>" method="POST">
+        <!-- Form diperbarui untuk mendukung upload file -->
+        <form action="/posts/edit/<%= post.id %>" method="POST" enctype="multipart/form-data">
             <input type="text" name="title" placeholder="Post Title" value="<%= post.title %>" required class="form-control">
-            <input type="text" name="thumbnail" placeholder="Thumbnail URL" class="form-control">
+            <!-- Input file untuk upload thumbnail -->
+            <input type="file" name="thumbnail" accept="image/*" class="form-control">
             <textarea name="content" id="editor" required class="form-control"><%= post.content %></textarea>
             <button type="submit" class="btn-update">Update Post</button>
         </form>
