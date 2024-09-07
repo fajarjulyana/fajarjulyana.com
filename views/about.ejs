@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>fajarjulyana.com</title>
+    <title>About Us - fajarjulyana.com</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- FontAwesome for Icons -->
@@ -27,6 +27,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/about">About</a>
                 </li>
+                <!-- Add other nav items as needed -->
             </ul>
             <div class="ml-3 dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle Dark Mode">
                 <i class="fas fa-moon"></i>
@@ -34,36 +35,24 @@
         </div>
     </nav>
 
-    <!-- Parallax Section -->
-    <div class="parallax mt-5" style="background-image: url('images/code.jpg');">
-        <div class="parallax-overlay">Welcome to My Blog</div>
-    </div>
-
-    <!-- Search Bar -->
+    <!-- About Section -->
     <div class="container mt-5">
-        <div class="search-bar">
-            <input type="text" id="searchInput" class="form-control" placeholder="Search posts..." oninput="filterPosts()">
-            <i class="fas fa-search"></i>
-        </div>
-    </div>
-
-    <!-- Main Content -->
-    <div class="container mt-5" id="postsContainer">
-        <h1>All Posts</h1>
-        <% posts.forEach(post => { %>
-        <div class="blog-post light-mode" data-title="<%= post.title.toLowerCase() %>" data-content="<%= post.content.toLowerCase() %>">
-            <div class="blog-post-thumbnail">
-                <img src="<%= post.thumbnail %>" alt="<%= post.title %> Thumbnail">
+        <h1>About Us</h1>
+        <div class="row">
+            <div class="col-lg-6">
+                <img src="images/profile.jpeg" alt="Profile Picture" class="img-fluid rounded-circle">
             </div>
-            <div class="blog-post-content">
-                <h2 class="blog-post-title"><%= post.title %></h2>
-                <div>
-                    <%- post.content.substring(0, 100) %>...
-                </div>
-                <a href="/posts/<%= post.id %>" class="read-more">Baca Selengkapnya</a>
+            <div class="col-lg-6">
+                <h2>Our Mission</h2>
+                <p>Welcome to Fajar Julyana's blog! Here, we share insights, tutorials, and stories about coding, technology, and more. Our mission is to educate and inspire through engaging content that helps you grow and excel in your tech journey.</p>
+                
+                <h2>About Fajar Julyana</h2>
+                <p>Fajar Julyana is a passionate developer and tech enthusiast with years of experience in the industry. With a love for teaching and sharing knowledge, Fajar created this blog to connect with like-minded individuals and to contribute to the tech community.</p>
+                
+                <h2>Get in Touch</h2>
+                <p>If you have any questions, feedback, or just want to say hi, feel free to reach out through the contact form on our website or connect with us on social media.</p>
             </div>
         </div>
-        <% }) %>
     </div>
 
     <!-- Footer -->

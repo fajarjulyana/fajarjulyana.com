@@ -71,6 +71,11 @@ app.get('/posts/:id', async (req, res) => {
     }
 });
 
+// Rute untuk halaman tentang (About)
+app.get('/about', (req, res) => {
+    res.render('about');
+});
+
 // Rute untuk admin menampilkan form create post
 app.get('/admin/posts/create', requireLogin, (req, res) => {
     res.render('admin/admin-create-post');
