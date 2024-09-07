@@ -38,3 +38,44 @@ function filterPosts() {
         }
     });
 }
+const texts = [
+    "Sharing coding tutorials",
+    "Tips and tricks for developers",
+    "Exploring new technologies",
+    "Join me on this journey"
+];
+
+let index = 0;
+let charIndex = 0;
+let currentText = "";
+let isDeleting = false;
+
+function typeEffect() {
+    const animatedText = document.getElementById('animatedText');
+
+    if (!isDeleting && charIndex <= texts[index].length) {
+        // Tambahkan satu karakter pada teks
+        currentText = texts[index].substring(0, charIndex);
+        animatedText.textContent = currentText;
+        charIndex++;
+        setTimeout(typeEffect, 100); // Kecepatan mengetik
+    } else if (isDeleting && charIndex > 0) {
+        // Hapus satu karakter
+        currentText = texts[index].substring(0, charIndex);
+        animatedText.textContent = currentText;
+        charIndex--;
+        setTimeout(typeEffect, 50); // Kecepatan menghapus
+    } else if (!isDeleting && charIndex > texts[index].length) {
+        // Berhenti sejenak sebelum menghapus
+        isDeleting = true;
+        setTimeout(typeEffect, 2000); // Waktu jeda sebelum mulai menghapus
+    } else if (isDeleting && charIndex === 0) {
+        // Pindah ke teks berikutnya dan mulai mengetik lagi
+        isDeleting = false;
+        index = (index + 1) % texts.length;
+        setTimeout(typeEffect, 500); // Waktu jeda sebelum mulai mengetik teks berikutnya
+    }
+}
+
+// Mulai efek mengetik saat halaman dimuat
+typeEffect();
